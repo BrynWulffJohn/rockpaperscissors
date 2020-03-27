@@ -5,7 +5,35 @@
 </head>
 <script>
     
+    // Initial game start question and storing yes or no in variable start 
+    alert('I, the awesome computer, can not be beaten at Rock, Paper, Scissors!! Do you wanna try? Of course you do, let\'s play');
+   
+    // function to generate random computer choice from the array choice and store it in computerSelection
+    function computerPlay(choice) {
+        return choice[Math.floor(Math.random()*choice.length)];
+    }
+    let choice = ['rock', 'paper', 'scissors'];
+    let computerSelection = computerPlay(choice);
+
+    
+    //player input for their go storing result in playerSelection
+    let playerSelection = prompt('Let\'s beat this dude, what you picking, Rock, Paper Or Scissors?').toLowerCase();
+    
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === computerSelection) {
+            return('It\'s a draw, we both went for ' + playerSelection + '!');
+        } else if (playerSelection === 'rock' && computerSelection === 'scissors' || playerSelection === 'paper' && computerSelection === 'rock' || playerSelection === 'scissors' && computerSelection === 'paper' ) {
+            return('You win, you went for ' + playerSelection + ', annoyingly I went for ' + computerSelection + '!');
+        } else if (playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissors' || playerSelection === 'scissors' && computerSelection === 'rock' ) {
+            return('HA HA HA I am the ultimate!! You didn\'t stand a chance with ' + playerSelection + ', I destroyed you with ' + computerSelection + '!');
+        }
+    };
+    
+    let result = playRound(playerSelection, computerSelection);
+    alert(result);
+
 </script>
+
 <body>
 </body>
 </html>
